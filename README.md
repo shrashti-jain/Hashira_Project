@@ -33,12 +33,4 @@ The JSON file contains:
 
 ### Step 3 — Reconstruct the polynomial using Lagrange interpolation
 - Use the first `k` decoded points `(x_i, y_i)` to build the polynomial of degree `k - 1`.
-- Lagrange interpolation formula:
-  \[
-  f(x) = \sum_{i=0}^{k-1} y_i \cdot \prod_{\substack{j=0 \\ j \ne i}}^{k-1} \frac{x - x_j}{x_i - x_j}
-  \]
-- To get the constant term \(C = f(0)\), evaluate at \(x = 0\):
-  \[
-  C = f(0) = \sum_{i=0}^{k-1} y_i \cdot \prod_{\substack{j=0 \\ j \ne i}}^{k-1} \frac{-x_j}{x_i - x_j}
-  \]
 - Compute the product and division exactly (use integer arithmetic with `BigInteger` where needed), sum the terms, and the result is the polynomial constant `C`.
